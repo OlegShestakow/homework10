@@ -243,7 +243,7 @@ public class RadioTest {
     public void shouldRadiostationAboveMaxLimit(){
         Radio radiostation = new Radio(20);
         radiostation.setCurrentNumberOfRadiostation(15);
-        int expected = 0;
+        int expected = 15;
         int actual = radiostation.getCurrentNumberOfRadiostation();
         Assertions.assertEquals(expected , actual);
     }

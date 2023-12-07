@@ -2,16 +2,15 @@ public class Radio {
 
     private int currentNumberOfRadiostation;
     private int currentSoundVolume;
-    private int maxRadiostation = 9;
-    private int maxVolume = 100;
-    private int numberOfRadiostation = 10;
-    public Radio(int numberOfRadiostation) {
-        this.numberOfRadiostation = numberOfRadiostation;
-    }
-    public Radio(){
+    private int maxStation;
 
+    public Radio() {
+        maxStation = 9;
     }
 
+    public Radio(int stationCount) {
+        maxStation = stationCount - 1;
+    }
 
 
     public void setCurrentNumberOfRadiostation(int newCurrentNumberOfRadiostation) {
@@ -19,18 +18,19 @@ public class Radio {
             return;
         }
 
-        if (newCurrentNumberOfRadiostation > maxRadiostation) {
+        if (newCurrentNumberOfRadiostation > maxStation) {
             return;
         }
         currentNumberOfRadiostation = newCurrentNumberOfRadiostation;
     }
+
     public int getCurrentNumberOfRadiostation() {
 
         return currentNumberOfRadiostation;
     }
 
     public void next() {
-        if (currentNumberOfRadiostation == maxRadiostation) {
+        if (currentNumberOfRadiostation == maxStation) {
             currentNumberOfRadiostation = 0;
         } else {
             currentNumberOfRadiostation++;
@@ -39,7 +39,7 @@ public class Radio {
 
     public void prev() {
         if (currentNumberOfRadiostation == 0) {
-            currentNumberOfRadiostation = maxRadiostation;
+            currentNumberOfRadiostation = maxStation;
         } else {
             currentNumberOfRadiostation--;
         }
@@ -55,20 +55,20 @@ public class Radio {
             return;
         }
 
-        if (newCurrentSoundVolume > maxVolume) {
+        if (newCurrentSoundVolume > 100) {
             return;
         }
 
         currentSoundVolume = newCurrentSoundVolume;
     }
 
-    public void increaseCurrentSoundVolume (){
-        if (currentSoundVolume < maxVolume) {
+    public void increaseCurrentSoundVolume() {
+        if (currentSoundVolume < 100) {
             currentSoundVolume++;
         }
     }
 
-    public void decreaseCurrentSoundVolume (){
+    public void decreaseCurrentSoundVolume() {
         if (currentSoundVolume > 0) {
             currentSoundVolume--;
         }
